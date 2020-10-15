@@ -1,0 +1,9 @@
+.editor-link{
+    color: rgba(0, 83, 156, 0.74);
+    text-decoration: none;
+}
+.editor-link:hover{
+    color: rgba(0,83,156, .54);
+    text-decoration: none;
+    cursor: pointer;
+}

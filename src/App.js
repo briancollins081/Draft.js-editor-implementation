@@ -1,22 +1,20 @@
 import React from 'react';
 
 import { EditorState, RichUtils } from 'draft-js';
-import Editor  from 'draft-js-plugins-editor';
+import Editor from 'draft-js-plugins-editor';
 import createLinkifyPlugin from 'draft-js-linkify-plugin';
 
 import 'draft-js/dist/Draft.css';
 import 'draft-js-linkify-plugin/lib/plugin.css';
 
-
-
 import './App.css';
+import './EditorStyles/linkStyles.css';
 
 // Draft constants
 const linkifyPlugin = createLinkifyPlugin({
-  component: (props) => (
-    // eslint-disable-next-line no-alert, jsx-a11y/anchor-has-content
-    <a {...props} onClick={() => alert('Clicked on Link!')} />
-  )
+  theme: {
+    link: "editor-link"
+  }
 });
 const plugins = [linkifyPlugin]
 
