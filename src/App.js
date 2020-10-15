@@ -29,7 +29,7 @@ const { MentionSuggestions } = mentionsPlugin;
 
 const App = () => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
-  const [suggestions, setSuggestions] = useState(mentions);
+  const [suggestions, setSuggestions] = useState([]);
 
   const editor = useRef(null);
 
@@ -54,8 +54,21 @@ const App = () => {
 
   // editor plugins functions
   const handleMentionSearchChange = ({ value }) => {
-    console.log(value);
+    // console.log(value);
     setSuggestions(defaultSuggestionsFilter(value, mentions));
+
+    fetch('./EditorData/mentions.json')
+      .then((response) => {
+        setTimeout(function () {
+        }, 5000);
+        return response.json();
+      })
+      .then((data) => {
+        this.setState({
+          suggestions: data,
+        });
+      });
+
   };
 
   const handleAddMention = () => {
