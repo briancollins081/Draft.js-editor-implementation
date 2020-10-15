@@ -1,11 +1,10 @@
 .mention {
-    color:rgba(0, 83, 156, 0.74);
+    color: rgba(0, 83, 156);
     text-decoration: none;
 }
 
-/*
 .mentionSuggestions {
-    border-top: 1px solid #eee;
+    /* border-top: 1px solid #eee; */
     background: #fff;
     border-radius: 2px;
     cursor: pointer;
@@ -14,14 +13,19 @@
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    transform-origin: 50% 0%;
-    transform: scaleY(0);
-    margin: -16px;
+    /* transform-origin: 50% 0%;
+    transform: scaleY(0); */
+    /* margin: -8px; */
 }
- 
+
 .mentionSuggestionsEntryContainer {
-    display: table;
-    width: 100%;
+    /* display: table; */
+    /* width: 100%; */
+    /* border: 2px solid green; */
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow: hidden;
 }
 
 .mentionSuggestionsEntryContainerLeft,
@@ -36,12 +40,12 @@
 }
 
 .mentionSuggestionsEntry {
-    padding: 7px 10px 3px 10px;
+    /* padding: 7px 10px 3px 10px; */
     transition: background-color 0.4s cubic-bezier(.27, 1.27, .48, .56);
 }
 
 .mentionSuggestionsEntry:active {
-    background-color: #cce7ff;
+    background-color: rgba(0, 83, 156, 0.1);
 }
 
 .mentionSuggestionsEntryFocused {
@@ -68,4 +72,4 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
-} */
+}

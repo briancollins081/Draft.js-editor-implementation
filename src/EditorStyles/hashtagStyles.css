@@ -1,0 +1,7 @@
+.hashtag {
+    color: rgba(0, 83, 156);
+    /* background-color: rgba(0, 83, 156, 0.1); 
+    padding: 3px;
+    border-radius: 2px; */
+    cursor: pointer;
+}
