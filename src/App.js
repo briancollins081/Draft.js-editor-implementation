@@ -131,8 +131,6 @@ const App = () => {
 
   // editor plugins functions
   const handleMentionSearchChange = ({ value }) => {
-    // console.log(value);
-
     // fetch('./EditorData/mentions.json')
     //   .then((response) => {
 
@@ -153,6 +151,7 @@ const App = () => {
         setSuggestions(defaultSuggestionsFilter(value, res.data.data));
       }
     }).catch(function (err) {
+      // set default mentions here incase the request fails over network - json file mentions
       // setSuggestions(mentions);
       // setSuggestions(defaultSuggestionsFilter(value, mentions));
     })
@@ -177,7 +176,10 @@ const App = () => {
       </header>
       <hr />
       <div className="editor-section">
-        <h4 className="text-center">Editing</h4>
+        <h4 className="text-center">React.js editing with features:
+        <br />
+          1. <em>@Mentions,</em> <em>#Hashtags</em> and <em>Links autodetection.</em>
+        </h4>
         <div className="editor-wrapper editor" onClick={handleEditorFocus}>
           <Editor
             editorState={editorState}
@@ -191,6 +193,7 @@ const App = () => {
             suggestions={suggestions}
             onAddMention={handleAddMention}
             entryComponent={Entry}
+
           />
         </div>
       </div>
