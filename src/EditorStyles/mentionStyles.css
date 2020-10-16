@@ -13,15 +13,30 @@
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    /* transform-origin: 50% 0%;
-    transform: scaleY(0); */
-    /* margin: -8px; */
+    height: 15rem !important;
+    overflow-y: scroll !important;
 }
 
+.mentionSuggestions::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+    background-color: #F5F5F5 !important;
+    border-radius: 6px !important;
+}
+
+.mentionSuggestions::-webkit-scrollbar {
+    width: 6px !important;
+    background-color: #F5F5F5 !important;
+}
+
+.mentionSuggestions::-webkit-scrollbar-thumb {
+    border-radius: 10px !important;
+    /* background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(122, 153, 217)), color-stop(0.72, rgb(73, 125, 189)), color-stop(0.86, rgb(28, 58, 148))); */
+    /* background-color: #d5a10f !important; */
+    background-color: rgba(0, 83, 156, .5) !important;
+}
+
+
 .mentionSuggestionsEntryContainer {
-    /* display: table; */
-    /* width: 100%; */
-    /* border: 2px solid green; */
     padding: 10px;
     padding-top: 20px;
     padding-bottom: 20px;

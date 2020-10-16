@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import Axios from 'axios';
 
 import { EditorState, RichUtils } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
@@ -131,18 +132,30 @@ const App = () => {
   // editor plugins functions
   const handleMentionSearchChange = ({ value }) => {
     // console.log(value);
-    setSuggestions(defaultSuggestionsFilter(value, mentions));
 
-    fetch('./EditorData/mentions.json')
-      .then((response) => {
+    // fetch('./EditorData/mentions.json')
+    //   .then((response) => {
 
-        return response.json();
-      })
-      .then((data) => {
-        this.setState({
-          suggestions: data,
-        });
-      });
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     this.setState({
+    //       suggestions: data,
+    //     });
+    //   });
+    Axios.get('http://127.0.0.1:4010/api/user/mentions', {
+      headers: {
+        'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InByb2ZpbGVwaWN0dXJlIjoiaHR0cHM6Ly90d2FhLnMzLmZyLXBhci5zY3cuY2xvdWQvcHJvZmlsZXBpY3R1cmVzL3Byb2ZpbGVfV0o3MFVoTHk3eFQwRi5qcGciLCJpZCI6MzQ4LCJ1c2VybmFtZSI6IkV2ZXJsaW5lIEIiLCJ0d2FhdXNlcm5hbWUiOiJFdmVybGluZS5CIiwibW9iaWxlIjoiKzI1NDc5MTA2MTk0NCIsImVtYWlsIjoiYW5kZXJlYkBhZGFsYWJzYWZyaWNhLmNvbSIsImJpcnRoZGF5IjoiMjAyMC0wOC0yOSIsInN0YXR1cyI6MiwicmVnc3RhdHVzIjoxLCJyZWd0eXBlIjoxLCJkZWZhdWx0X2NhdGVnb3J5IjoxLCJ0d2FhSXRzIjozLCJwYXNzd29yZF9yZXNldF90b2tlbiI6Im51bGwiLCJwYXNzd29yZCI6IiQyYSQwOCRhaUN4aVp4dDQ1SU9tZ3h0SW1icC4ueUZPMDRJZTU5bEpLWHN0amRBVWVWbGY0aXlmRGt5RyIsImNyZWF0ZWRBdCI6IjIwMjAtMDgtMjhUMTc6Mjc6MTUuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjAtMDktMjhUMDg6NDE6MjIuMDAwWiIsIlJvbGVzIjpbeyJpZCI6NCwidHlwZSI6IkNPVU5TRUxPUiIsInVzZXJfcm9sZXMiOnsidXNlcklkIjozNDgsInJvbGVJZCI6NH19XX0sImlhdCI6MTYwMjc5MTkwNCwiZXhwIjoxNjEwNTY3OTA0fQ.5duYEYI1e9tw5OizCfW7qJ0jNUwHNR-D574SQao-V8s'
+      }
+    }).then(res => {
+      if (res.data.success === true) {
+        // setSuggestions(res.data.data)
+        setSuggestions(defaultSuggestionsFilter(value, res.data.data));
+      }
+    }).catch(function (err) {
+      // setSuggestions(mentions);
+      // setSuggestions(defaultSuggestionsFilter(value, mentions));
+    })
 
   };
 
